@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class KafkaProducer {
 
 	@Autowired
-	private KafkaTemplate<String, String> kafkaTemplate;
+	private KafkaTemplate<String, RiderLocation> kafkaTemplate;
 
 	@PostMapping("/send")
 	public String sendMessage(@RequestParam String message) {
-		kafkaTemplate.send("my-topic", message);
-		return "Message sent: " + message;
+		RiderLocation location = new RiderLocation("rider123", 28.61, 77.23);
+		kafkaTemplate.send("my-topic-new", location);
+		return "Message sent: " + location.getRiderId();
 	}
 
 }
