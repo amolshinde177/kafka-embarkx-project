@@ -8,7 +8,13 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-       spring.json.add.type.headers: false
+        spring.json.add.type.headers: false
+
+  cloud:
+    function:
+      definition: uppercase
+      web:
+        path: /uppercase
 
 server:
   port: 9090
