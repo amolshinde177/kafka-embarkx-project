@@ -20,5 +20,9 @@ public class KafkaProducer {
 		kafkaTemplate.send("my-topic-new", location);
 		return "Message sent: " + location.getRiderId();
 	}
+	
+	public void test() {
+		
+	}
 
 }
